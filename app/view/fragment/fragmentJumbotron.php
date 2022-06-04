@@ -1,7 +1,13 @@
-<?php
+<!-- début fragmentJumbotron -->
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+<div class="jumbotron">
+    <?php 
+        if($cookieFamille)
+            echo("<h1> $cookieFamille </h1>");
+        else
+            echo("Pas de famille sélectionnée")
+    ?>
+</div>
+<p/>
 
+<!-- fin fragmentJumbotron -->
