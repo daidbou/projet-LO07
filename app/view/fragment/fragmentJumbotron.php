@@ -2,8 +2,8 @@
 
 <div class="jumbotron">
     <?php 
-        if($cookieFamille)
-            echo("<h1> $cookieFamille </h1>");
+        if(isset($_COOKIE["nomFamille"]))
+            echo("<h1>" . htmlspecialchars($_COOKIE["nomFamille"]) . "</h1>");
         else
             echo("Pas de famille sélectionnée")
     ?>

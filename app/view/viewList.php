@@ -1,6 +1,5 @@
 <?php include "$root . app/view/fragment/fragmentHeader.html" ?>
 
-<body>
 <div class="container">
 
     <?php
