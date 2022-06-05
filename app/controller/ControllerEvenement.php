@@ -1,12 +1,13 @@
 <?php
+    require_once($root."/app/model/ModelEvenement.php");
     class ControllerEvenement{
-        public static function evenementReadAll($args){
+        public static function evenementReadAll(){
             
         }
-        public static function evenementCreate($args){
+        public static function evenementCreate(){
             
         }
-        public static function evenementCreated($args){
+        public static function evenementCreated(){
             
         }
     }

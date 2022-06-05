@@ -19,6 +19,7 @@ parse_str($query_string, $param);
 $action = htmlspecialchars($param["action"]);
 
 
+
 // --- Liste des méthodes autorisées
 switch ($action) {
     
