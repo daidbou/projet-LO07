@@ -25,35 +25,25 @@ $args = $param;
 // --- Liste des méthodes autorisées
 switch ($action) {
     case "familleReadAll" :
-    case "familleReadOne" :
-    case "familleReadId" :
     case "familleCreate" :
     case "familleCreated" :
-    case "sansDoublon" :
-    case "nbrfamille" :
-        ControllerFamille::$action();
+    case "familleSelect" :
+    case "familleSelected" :
+        ControllerFamille::$action($args);
         break;
 
-    case "vinReadAll" :
-    case "vinReadOne" :
-    case "vinReadId" :
-    case "vinCreate" :
-    case "vinCreated" :
+    case "evenementReadAll" :
+    case "evenementReadOne" :
+    case "evenementReadId" :
+    case "evenementCreate" :
+    case "evenementCreated" :
 
-        ControllerVin::$action();
+        ControllerEvenement::$action($args);
         break;
     // Tache par défaut
 
-
-
-    case "mesPropositions" :
-
-        ControllerCave::$action();
-        break;
     default:
-        $action = "caveAccueil";
-        ControllerCave::$action();
-        break;
+
 }
 
 

@@ -10,3 +10,5 @@
 </div>
 
 <?php include $root."/app/view/fragment/fragmentFooter.html" ?>
+
+<!--TODO vérifier que results retourne bien le nom et l'id de la famille sélectionnée

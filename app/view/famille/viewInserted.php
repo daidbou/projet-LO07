@@ -9,10 +9,12 @@
             echo(
                 "<h1>Confirmation de la création d'une famille</h1>
                 <ul>
-                    <li>nom = {$_GET['nom']}</li>
+                    <li>nom = $results->nom</li>
                 </ul>
             ");
         }
     ?>
 
 </div>
+
+<!--TODO vérifier que results retourne bien le nom de la famille créée

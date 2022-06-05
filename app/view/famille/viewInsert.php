@@ -20,7 +20,6 @@
 </div>
 <?php include $root . "/app/view/fragment/fragmentFooter.html"?>
 
-    
-    
-
-
+<!--TODO ajouter le routage et vérifier que tout fonctionne
+connecter au controller
+tester une fois le model pret
