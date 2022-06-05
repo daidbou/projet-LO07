@@ -2,8 +2,10 @@
 
 <div class="jumbotron">
     <?php 
-        if(isset($_COOKIE["nomFamille"]))
-            echo("<h1>" . htmlspecialchars($_COOKIE["nomFamille"]) . "</h1>");
+        setcookie("NomSession", "bite", 3600);
+        echo $_COOKIE["nomSession"];
+        if(isset($_COOKIE["nomSession"]))
+            echo("<h1>".$_COOKIE["nomSession"]."</h1>");
         else
             echo("<h1>Pas de famille sélectionnée</h1>")
     ?>

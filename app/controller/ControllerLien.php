@@ -1,5 +1,5 @@
 <?php
-    require_once($root."/app/model/ModelLien.php");
+    require_once("../model/ModelLien.php");
     class ControllerLien{
 
     }

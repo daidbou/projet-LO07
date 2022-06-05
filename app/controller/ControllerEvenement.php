@@ -1,5 +1,5 @@
 <?php
-    require_once($root."/app/model/ModelEvenement.php");
+    require_once("../model/ModelEvenement.php");
     class ControllerEvenement{
         public static function evenementReadAll(){
             

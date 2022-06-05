@@ -2,6 +2,8 @@
 <!-- ----- debut Router1 -->
 <?php
 
+session_start();
+
 require ('../controller/ControllerFamille.php');
 require ('../controller/ControllerEvenement.php');
 require ('../controller/ControllerLien.php');
@@ -18,8 +20,6 @@ parse_str($query_string, $param);
 // --- $action contient le nom de la méthode statique recherchée
 $action = htmlspecialchars($param["action"]);
 
-
-
 // --- Liste des méthodes autorisées
 switch ($action) {
     
@@ -30,7 +30,7 @@ switch ($action) {
     case "familleSelected" :
         ControllerFamille::$action();
         break;
-
+/*
     case "evenementReadAll" :
     case "evenementCreate" :
     case "evenementCreated" :
@@ -38,7 +38,7 @@ switch ($action) {
         ControllerEvenement::$action();
         break;
     // Tache par défaut
-
+*/
     default:
         $action = "accueil";
         ControllerGenealogie::$action();

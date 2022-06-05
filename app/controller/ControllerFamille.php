@@ -1,5 +1,5 @@
 <?php
-    require_once($root."/app/model/ModelFamille.php");
+    require_once("../model/ModelFamille.php");
 
     class ControllerFamille{
         
@@ -13,16 +13,35 @@
             require($vue);
         }
         public static function familleCreate(){
-            
+            include 'config.php';
+            $vue = $root . "/app/view/famille/viewInsert.php";
+            require ($vue);
         }
         public static function familleCreated(){
-            
+            $results = ModelFamille::insert(htmlspecialchars($_GET['nom']));
+            include 'config.php';
+            var_dump($results);
+            $_SESSION["nom"] = $results;
+            $vue = $root . "/app/view/famille/viewInserted.php";
+            require($vue);
         }
         public static function familleSelect(){
-            
+            $results = ModelFamille::getAll();
+            include 'config.php';
+            $vue = $root . "/app/view/famille/viewSelect.php";
+            require($vue);
+
+
         }
         public static function familleSelected(){
-            
+            $valide=0;
+            if($_GET["nom"]==$_SESSION["nom"])
+                $valide=1;
+            else
+                $_SESSION["nom"] = $_GET["nom"];
+            include 'config.php';
+            $vue = $root . "/app/view/famille/viewInserted.php";
+            require($vue);
         }
     }
 ?>

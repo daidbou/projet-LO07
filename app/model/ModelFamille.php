@@ -35,7 +35,7 @@
         public static function getAll(){
             try{
                 $database = Model::getInstance();
-                $query = "select * from famille";
+                $query = "select * from famille order by id";
                 $statement = $database->prepare($query);
                 $statement->execute();
                 $results = $statement->fetchAll(PDO::FETCH_CLASS,"ModelFamille");
@@ -45,9 +45,31 @@
                 printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
                 return NULL;
             }
-
         }
 
+        public static function insert($nom){
+            try{
+                $database = Model::getInstance();
+                
+                $query = "select max(id) from famille";
+                $statement = $database->query($query);
+                $tuple = $statement->fetch();
+                $id = $tuple['0'];
+                $id++;
+
+                $query = "insert into famille value (:id, :nom)";
+                $statement = $database->prepare($query);
+                $statement->execute([
+                    "id" => $id,
+                    "nom" => $nom,
+                ]);
+                return $nom;
+            }
+            catch(PDOException $e){
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return -1;
+            } 
+        }
     }
 
 ?>
