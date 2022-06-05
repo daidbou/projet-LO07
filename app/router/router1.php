@@ -1,10 +1,13 @@
 
 <!-- ----- debut Router1 -->
 <?php
+/*
 require ('../controller/ControllerFamille.php');
 require ('../controller/ControllerEvenement.php');
 require ('../controller/ControllerLien.php');
 require ('../controller/ControllerIndividu.php');
+*/
+require ('../controller/ControllerGenealogie.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -24,6 +27,7 @@ $args = $param;
 
 // --- Liste des méthodes autorisées
 switch ($action) {
+    /*
     case "familleReadAll" :
     case "familleCreate" :
     case "familleCreated" :
@@ -33,17 +37,17 @@ switch ($action) {
         break;
 
     case "evenementReadAll" :
-    case "evenementReadOne" :
-    case "evenementReadId" :
     case "evenementCreate" :
     case "evenementCreated" :
 
         ControllerEvenement::$action($args);
         break;
     // Tache par défaut
-
+*/
     default:
-
+        $action = "accueil";
+        ControllerGenealogie::$action();
+        break;
 }
 
 
