@@ -18,11 +18,6 @@ parse_str($query_string, $param);
 // --- $action contient le nom de la méthode statique recherchée
 $action = htmlspecialchars($param["action"]);
 
-$action = $param["action"];
-
-unset($param['action']);
-
-$args = $param;
 
 // --- Liste des méthodes autorisées
 switch ($action) {
@@ -32,14 +27,14 @@ switch ($action) {
     case "familleCreated" :
     case "familleSelect" :
     case "familleSelected" :
-        ControllerFamille::$action($args);
+        ControllerFamille::$action();
         break;
 
     case "evenementReadAll" :
     case "evenementCreate" :
     case "evenementCreated" :
 
-        ControllerEvenement::$action($args);
+        ControllerEvenement::$action();
         break;
     // Tache par défaut
 
