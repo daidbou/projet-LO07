@@ -12,3 +12,4 @@
 <?php include $root."/app/view/fragment/fragmentFooter.html" ?>
 
 <!--TODO vérifier que results retourne bien le nom et l'id de la famille sélectionnée
+results doit être la confirmation que le cookie de session du nom de famille est bien la requête selectionné

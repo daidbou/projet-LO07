@@ -5,7 +5,7 @@
         if(isset($_COOKIE["nomFamille"]))
             echo("<h1>" . htmlspecialchars($_COOKIE["nomFamille"]) . "</h1>");
         else
-            echo("Pas de famille sélectionnée")
+            echo("<h1>Pas de famille sélectionnée</h1>")
     ?>
 </div>
 <p/>
