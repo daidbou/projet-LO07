@@ -1,5 +1,4 @@
-<?php setcookie("NomSession", "bite", 3600);
-require ($root . "/app/view/fragment/fragmentHeader.html"); ?>
+<?php require ($root . "/app/view/fragment/fragmentHeader.html"); ?>
 
 <div class="container">
     <?php

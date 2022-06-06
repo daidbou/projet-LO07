@@ -2,8 +2,6 @@
 <!-- ----- debut Router1 -->
 <?php
 
-session_start();
-
 require ('../controller/ControllerFamille.php');
 require ('../controller/ControllerEvenement.php');
 require ('../controller/ControllerLien.php');

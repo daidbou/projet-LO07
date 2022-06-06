@@ -20,8 +20,8 @@
         public static function familleCreated(){
             $results = ModelFamille::insert(htmlspecialchars($_GET['nom']));
             include 'config.php';
-            var_dump($results);
-            $_SESSION["nom"] = $results;
+            
+            $_COOKIE["nom"] = $results;
             $vue = $root . "/app/view/famille/viewInserted.php";
             require($vue);
         }
@@ -35,10 +35,10 @@
         }
         public static function familleSelected(){
             $valide=0;
-            if($_GET["nom"]==$_SESSION["nom"])
+            if($_GET["nom"]==$_COOKIE["nom"])
                 $valide=1;
             else
-                $_SESSION["nom"] = $_GET["nom"];
+                $_COOKIE["nom"] = $_GET["nom"];
             include 'config.php';
             $vue = $root . "/app/view/famille/viewInserted.php";
             require($vue);
