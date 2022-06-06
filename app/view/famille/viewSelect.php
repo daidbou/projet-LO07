@@ -7,13 +7,13 @@
     ?>
     <h1>Confirmation de la sélection d'une famille</h1>
     <form action="router1.php" method="get">
+    <input type="hidden" name="action" value="familleSelected">
         <div class="form-group">
-            <input type="hidden" name="action" value="familleSelect">
             <label for="nom">Nom :</label>
-            <select class="form-control" name="nom" id="nom" style="width:100px">
+            <select class="form-control" name="nom" id="nom" style="width:150px">
                 <?php 
-                    foreach($results as $nom){
-                        echo("<option>$nom</option>");
+                    foreach($results as $element){
+                        echo("<option>".$element->getNom()."</option>");
                     }
                 ?>
             </select>

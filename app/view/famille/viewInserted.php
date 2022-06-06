@@ -9,7 +9,7 @@
         echo(
             "<h1>Confirmation de la création d'une famille</h1>
             <ul>
-                <li>nom = $results</li>
+                <li>nom = {$_GET['nom']}</li>
             </ul>
         ");
         

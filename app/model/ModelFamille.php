@@ -70,6 +70,21 @@
                 return -1;
             } 
         }
+
+        public static function getOne(){
+            try{
+                $database = Model::getInstance();
+                $query = "select * from famille where nom = '{$_GET['nom']}'";
+                $statement = $database->query($query);
+                $results = $statement->fetch(PDO::FETCH_OBJ);
+                
+                return $results;
+            }
+            catch(PDOException $e){
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return -1;
+            }
+        }
     }
 
 ?>
