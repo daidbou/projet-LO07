@@ -8,10 +8,12 @@
         
         echo(
             "<h1>Confirmation de la création d'une famille</h1>
-            <ul>
-                <li>nom = {$_GET['nom']}</li>
-            </ul>
-        ");
+            <ul>");
+            if($results==-1)
+                echo("<li>la famille ". $_GET['nom'] ." est déjà inséré</li>");
+            else
+                echo("<li>nom = ". $_GET['nom']."</li>");
+            echo ('</ul>');
         
     ?>
 

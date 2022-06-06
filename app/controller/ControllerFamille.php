@@ -19,7 +19,7 @@
         }
         public static function familleCreated(){
             $results = ModelFamille::insert(htmlspecialchars($_GET['nom']));
-            if($results="-1")
+            if($results!=-1)
                 setcookie("nom", $_GET['nom']);
             include 'config.php';
             $vue = $root . "/app/view/famille/viewInserted.php";

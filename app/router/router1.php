@@ -28,15 +28,15 @@ switch ($action) {
     case "familleSelected" :
         ControllerFamille::$action();
         break;
-/*
+
     case "evenementReadAll" :
-    case "evenementCreate" :
-    case "evenementCreated" :
+    /*case "evenementCreate" :
+    case "evenementCreated" :*/
 
         ControllerEvenement::$action();
         break;
     // Tache par défaut
-*/
+
     default:
         $action = "accueil";
         ControllerGenealogie::$action();

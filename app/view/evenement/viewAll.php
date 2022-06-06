@@ -4,7 +4,7 @@
     <?php
         include $root . "/app/view/fragment/fragmentMenu.html";
         include $root . "/app/view/fragment/fragmentJumbotron.php";
-        echo("<h1>Liste des évènements/h1>");  
+        echo("<h1>Liste des évènements</h1>");  
     ?>
     <table class="table table-bordered table-striped">
         <thead>
@@ -18,19 +18,15 @@
             </tr>
         </thead>
         <tbody>
-            <?php/*
+            <?php
                 //données du tableau
-                foreach($results as $element){
-                    echo("<tr scope 'row'>
-                            <td>$element->famille_id</td>
-                            <td>$element->id</td>
-                            <td>$element->iid</td>
-                            <td>$element->event_type</td>
-                            <td>$element->event_date</td>
-                            <td>$element->event_lieu</td>
-                          </tr>
-                        ");
-                    }*/
+                    foreach($results as $row){
+                        echo("<tr scope 'row'>");
+                        foreach($row as $key=>$value){
+                            echo("<td>$value");
+                        }
+                        echo("</tr>"); 
+                    }    
             ?> 
         </tbody>
     </table>                  
