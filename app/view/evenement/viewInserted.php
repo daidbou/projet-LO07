@@ -3,18 +3,18 @@
 <div class="container">
     <?php
         include $root . "/app/view/fragment/fragmentMenu.html";
-        include $root . "/app/view/fragment/fragmentJumbotron.html";
+        include $root . "/app/view/fragment/fragmentJumbotron.php";
 
-        if($valide!=1){
+        if(!$results){
             echo(
                 "<h1>Confirmation de la création d'un évènement</h1>
                 <ul>
-                    <li>famille_id = $results->famille_id</li>
-                    <li>individu_id = $results->iid</li>
-                    <li>event_id = $results->id</li>
-                    <li>event_type = $results->event_type</li>
-                    <li>event_date = $results->event_date</li>
-                    <li>event_lieu = $results->event_lieu</li>
+                    <li>famille_id = ". $results->getFamille_id()."</li>
+                    <li>individu_id = ".$results->getId()."</li>
+                    <li>event_id = ".$results->getIid()."</li>
+                    <li>event_type = ".$results->getEvent_type().".</li>
+                    <li>event_date = ".$results->getEvent_date()."</li>
+                    <li>event_lieu = ".$results->getEvent_lieu()."</li>
                 </ul>
             ");
         }

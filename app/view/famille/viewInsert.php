@@ -12,10 +12,10 @@
     <form role="form" method="get" action="router1.php">
         <div class="form-group">
             <input type="hidden" name="action" value="familleCreated">
-            <label for="nom">nom : </label><p/><input type="text" name="nom" size="50" value="bounliane">
+            <label for="nom">nom : </label><p/><input type="text" name="nom" style='width:70%' value="bounliane">
         </div>
         <p/>
-        <button type="submit" clas="btn btn-primary">Go</button>
+        <button class="btn btn-primary" type="submit"> Go </button>
     </form>
 </div>
 <?php include $root . "/app/view/fragment/fragmentFooter.html"?>

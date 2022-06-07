@@ -71,10 +71,10 @@
             } 
         }
 
-        public static function getOne(){
+        public static function getOne($nom){
             try{
                 $database = Model::getInstance();
-                $query = "select * from famille where nom = '{$_GET['nom']}'";
+                $query = "select * from famille where nom = '$nom'";
                 $statement = $database->query($query);
                 $results = $statement->fetch(PDO::FETCH_OBJ);
                 

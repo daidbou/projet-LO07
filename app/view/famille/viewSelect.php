@@ -10,7 +10,7 @@
     <input type="hidden" name="action" value="familleSelected">
         <div class="form-group">
             <label for="nom">Nom :</label>
-            <select class="form-control" name="nom" id="nom" style="width:150px">
+            <select class="form-control" name="nom" id="nom" style="width:70%">
                 <?php 
                     foreach($results as $element){
                         echo("<option>".$element->getNom()."</option>");

@@ -7,7 +7,7 @@
         include $root . "/app/view/fragment/fragmentMenu.html";
         include $root . "/app/view/fragment/fragmentJumbotron.php";
     
-        echo("<h1>Ajout d'un évènement</h1>")
+        echo("<h1>Ajout d'un évènement</h1>");
     ?>
 
     <form role="form" method="get" action="router1.php">
@@ -15,11 +15,12 @@
         
         <!--selection de l'individu-->    
         <div class="form-group">
-            <label for="id">Sélectionnez un individu : </label>
-                <select name="id" id="id" class="form-control" style="width:100px" >
+            <label for="familyid_id">Sélectionnez un individu : </label>
+                <select name="familyid_id" id="familyid_id" class="form-control" style="width:50%" >
                     <?php
+                        var_dump($results);
                         foreach($results as $elements){
-                            echo("<option> $elements->famille_id : $elements->id</option>");
+                            echo("<option value='{$elements->getFamille_id()}_{$elements->getId()}'>". $elements->getNom()." : ".$elements->getPrenom()."</option>");
                         }
                     ?>
                 </select>
@@ -28,7 +29,7 @@
         <!--selection de l'évènement-->
         <div class="form-group">            
             <label for="evenement">Sélectionnez un type d'évènement :</label>
-            <select name="evenement" id="evenement" class="form-control" style="width:100px">
+            <select name="evenement" id="evenement" class="form-control" style="width: 50%">
                     <option>NAISSANCE</option>
                     <option>DECES</option>
             </select>
@@ -37,17 +38,17 @@
         <!--selection date-->
         <div class="form-group">
             <label for="date"> Date (AAAA-MM-JJ) ?</label>
-            <input type="date" format="aaaa-mm-dd" class="form-control" id="date" name="date" placeholder="" value="2001-01-16">
+            <input type="text" class="form-control" id="date" name="date" placeholder="" value="2001-01-16" style="width:50%">
         </div>
 
         <!--selection lieu-->
         <div class="form-group">
             <label for="lieu">Lieu ?</label>
-            <input type="text" class="form-control" id="lieu" name="lieu" placeholder="Troyes">
+            <input type="text" class="form-control" id="lieu" name="lieu" placeholder="Troyes" style="width:50%">
         </div>
         
         <!--submit-->
-        <button type="submit" class="btn-primary">Go</button>
+        <button type="submit" class="btn btn-primary"> Go </button>
     </form>
 </div>
 <?php include $root . "/app/view/fragment/fragmentFooter.html"?>

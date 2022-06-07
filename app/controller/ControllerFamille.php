@@ -18,9 +18,16 @@
             require ($vue);
         }
         public static function familleCreated(){
-            $results = ModelFamille::insert(htmlspecialchars($_GET['nom']));
-            if($results!=-1)
-                setcookie("nom", $_GET['nom']);
+            $valide = 0;
+            if($_GET['nom']=='')
+                $valide = 1;
+            else{
+                $results = ModelFamille::insert(htmlspecialchars($_GET['nom']));
+                if($results!=-1)
+                    setcookie("nomSession", $_GET['nom']);
+                else
+                    $valide = 2;
+            }
             include 'config.php';
             $vue = $root . "/app/view/famille/viewInserted.php";
             require($vue);
@@ -34,8 +41,8 @@
 
         }
         public static function familleSelected(){
-            $results = ModelFamille::getOne();
-            setcookie("nom", $_GET['nom']);
+            $results = ModelFamille::getOne(htmlspecialchars($_GET['nom']));
+            setcookie("nomSession", $_GET['nom']);
             include 'config.php';
             $vue = $root . "/app/view/famille/viewSelected.php";
             require($vue);

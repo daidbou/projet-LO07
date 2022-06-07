@@ -9,8 +9,10 @@
         echo(
             "<h1>Confirmation de la création d'une famille</h1>
             <ul>");
-            if($results==-1)
+            if($valide==2)
                 echo("<li>la famille ". $_GET['nom'] ." est déjà inséré</li>");
+            elseif($valide==-1)
+                echo("<li>veuillez ne pas laisser le champ vide</li>");
             else
                 echo("<li>nom = ". $_GET['nom']."</li>");
             echo ('</ul>');
