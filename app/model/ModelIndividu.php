@@ -34,7 +34,9 @@
         public function getId(){
             return $this->id;
         }
-
+        /**
+         * récupère tous les individus et toutes les données de la database individu
+         */
         public static function getAll(){
             try{
                 $database = Model::getInstance();

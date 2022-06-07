@@ -15,7 +15,9 @@
             $this->lien_date = $lien_date;
             $this->lien_lieu = $lien_lieu;
         }
-
+        /**
+         * obtenir la liste de tous les liens d'une famille selectionnée
+         */
         public static function getAll($famille){
             try{
                 $database = Model::getInstance();
