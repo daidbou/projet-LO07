@@ -25,7 +25,7 @@
         }
         public static function evenementCreated(){
             $valide = 0;
-            if($_GET['familleid_id']=NULL or $_GET['type']=NULL or $_GET['date']=NULL or $_GET['lieu']=NULL)
+            if($_GET['familleid_id']=='' or $_GET['type']=='' or $_GET['date']=='' or $_GET['lieu']=='')
             $results = ModelEvenement::insert(htmlspecialchars($_GET['familleid_id']),htmlspecialchars($_GET['type']),htmlspecialchars($_GET['date']),htmlspecialchars($_GET['lieu']));
             var_dump($results);
             include 'config.php';

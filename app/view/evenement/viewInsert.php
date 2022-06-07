@@ -15,8 +15,8 @@
         
         <!--selection de l'individu-->    
         <div class="form-group">
-            <label for="familyid_id">Sélectionnez un individu : </label>
-                <select name="familyid_id" id="familyid_id" class="form-control" style="width:50%" >
+            <label for="familleid_id">Sélectionnez un individu : </label>
+                <select name="familleid_id" id="familleid_id" class="form-control" style="width:50%" >
                     <?php
                         var_dump($results);
                         foreach($results as $elements){
@@ -28,8 +28,8 @@
 
         <!--selection de l'évènement-->
         <div class="form-group">            
-            <label for="evenement">Sélectionnez un type d'évènement :</label>
-            <select name="evenement" id="evenement" class="form-control" style="width: 50%">
+            <label for="type">Sélectionnez un type d'évènement :</label>
+            <select name="type" id="type" class="form-control" style="width: 50%">
                     <option>NAISSANCE</option>
                     <option>DECES</option>
             </select>
