@@ -17,51 +17,51 @@
             }
         }
 
-        function getFamille_id(){
+        public function getFamille_id(){
             return $this->famille_id;
         }
 
-        function getId(){
+        public function getId(){
             return $this->id;
         }
 
-        function getIid(){
+        public function getIid(){
             return $this->iid;
         }
 
-        function getEvent_type(){
+        public function getEvent_type(){
             return $this->event_type;
         }
 
-        function getEvent_date(){
+        public function getEvent_date(){
             return $this->event_date;
         }
 
-        function getEvent_lieu(){
+        public function getEvent_lieu(){
             return $this->event_lieu;
         }
 
-        function setFamille_id($id){
+        public function setFamille_id($id){
             $this->family_id = $id;
         }
 
-        function setId($id){
+        public function setId($id){
             $this->id = $id;
         }
 
-        function setIid($id){
+        public function setIid($id){
             $this->iid = $id;
         }
 
-        function setEvent_type($id){
+        public function setEvent_type($id){
             $this->event_type = $id;
         }
 
-        function setEvent_date($id){
+        public function setEvent_date($id){
             $this->event_date = $id;
         }
 
-        function setEvent_lieu($id){
+        public function setEvent_lieu($id){
             $this->event_lieu = $id;
         }
 
@@ -71,6 +71,7 @@
         public static function getAllEvenement($famille){
             try{
                 $database = Model::getInstance();
+                echo("wshhhh ". $famille);
                 $query = 
                 "select famille_id, evenement.id, iid, event_type, event_date, event_lieu from evenement inner join famille on famille.id = evenement.famille_id where famille.nom = '$famille'";
                 $statement = $database->prepare($query);
@@ -109,7 +110,7 @@
 
                 $query = "select * from evenement where id='$idmax'";
                 $statement = $database->query($query);
-                $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelEvenement");
+                $results = $statement->fetch(PDO::FETCH_OBJ);
                 return $results;
             }
             catch(PDOException $e){

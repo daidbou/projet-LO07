@@ -36,7 +36,12 @@ switch ($action) {
         ControllerEvenement::$action();
         break;
     // Tache par défaut
+    
+    case "lienReadAll" :
 
+        ControllerLien::$action();
+        break;
+        
     default:
         $action = "accueil";
         ControllerGenealogie::$action();

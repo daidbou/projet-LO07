@@ -25,9 +25,15 @@
         }
         public static function evenementCreated(){
             $valide = 0;
-            if($_GET['familleid_id']=='' or $_GET['type']=='' or $_GET['date']=='' or $_GET['lieu']=='')
-            $results = ModelEvenement::insert(htmlspecialchars($_GET['familleid_id']),htmlspecialchars($_GET['type']),htmlspecialchars($_GET['date']),htmlspecialchars($_GET['lieu']));
-            var_dump($results);
+            if($_GET['familleid_id']=='' or $_GET['type']=='' or $_GET['date']=='' or $_GET['lieu']==''){
+                $valide = 1;   
+            }
+            else{
+                $results = ModelEvenement::insert(htmlspecialchars($_GET['familleid_id']),htmlspecialchars($_GET['type']),htmlspecialchars($_GET['date']),htmlspecialchars($_GET['lieu']));
+                if($results==NULL)
+                    $valide = 2;
+
+            }
             include 'config.php';
             $vue = $root . "/app/view/evenement/viewInserted.php";
             if(DEBUG){

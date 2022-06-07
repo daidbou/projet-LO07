@@ -44,7 +44,7 @@
         <!--selection lieu-->
         <div class="form-group">
             <label for="lieu">Lieu ?</label>
-            <input type="text" class="form-control" id="lieu" name="lieu" placeholder="Troyes" style="width:50%">
+            <input type="text" class="form-control" id="lieu" name="lieu" placeholder="Troyes" value="Troyes" style="width:50%">
         </div>
         
         <!--submit-->
