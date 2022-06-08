@@ -11,7 +11,7 @@
             <ul>");
             if($valide==2)
                 echo("<li>la famille ". $_GET['nom'] ." est déjà inséré</li>");
-            elseif($valide==-1)
+            elseif($valide==1)
                 echo("<li>veuillez ne pas laisser le champ vide</li>");
             else
                 echo("<li>nom = ". $_GET['nom']."</li>");
