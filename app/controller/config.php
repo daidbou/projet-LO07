@@ -7,9 +7,9 @@ if (!defined('DEBUG')) {
 }
 
 // Configuration de la base de données
- $dsn = 'mysql:dbname=genealogie;host=localhost:8889;charset=utf8';
- $username = 'root';
- $password = 'root';
+ $dsn = 'mysql:dbname=roqdiamr;host=localhost;charset=utf8';
+ $username = 'roqdiamr';
+ $password = '3DtcLoNP';
 
 
 // chemin absolu vers le répertoire du projet SUR DEV-ISI 
