@@ -18,7 +18,6 @@
             <label for="familleid_id">Sélectionnez un individu : </label>
                 <select name="familleid_id" id="familleid_id" class="form-control" style="width:50%" >
                     <?php
-                        var_dump($results);
                         foreach($results as $elements){
                             echo("<option value='{$elements->getFamille_id()}_{$elements->getId()}'>". $elements->getNom()." : ".$elements->getPrenom()."</option>");
                         }

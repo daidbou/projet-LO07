@@ -38,6 +38,10 @@ switch ($action) {
     // Tache par défaut
     
     case "lienReadAll" :
+    case "lienCreate" :
+    case "lienCreated" :
+    case "lienUnionCreate" :
+    case "lienUnionCreated" :
 
         ControllerLien::$action();
         break;

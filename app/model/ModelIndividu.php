@@ -34,6 +34,20 @@
         public function getId(){
             return $this->id;
         }
+
+        public function getSexe(){
+            return $this->sexe;
+        }
+
+        public function getPere(){
+            return $this->pere;
+        }
+
+        public function getMere(){
+            return $this->mere;
+        }
+
+
         /**
          * récupère tous les individus et toutes les données de la database individu
          */
@@ -47,6 +61,46 @@
                 return $results;
             } 
             catch (PDOException $e) {
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return NULL;
+            }
+        }
+
+        public static function getSexeAll($param){
+            try{
+                $database = Model::getInstance();
+                $query = "select * from individu where id<>0 and sexe = '$param' order by famille_id";
+                $statement = $database->prepare($query);
+                $statement->execute();
+                $results = $statement->fetchAll(PDO::FETCH_CLASS,"ModelIndividu");
+                return $results;
+            } 
+            catch (PDOException $e) {
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return NULL;
+            }
+        }
+
+        public static function insert($enfant, $parent){
+            try{
+                $database = Model::getInstance();
+                $enfantArray = explode("_", $enfant);
+                $parentArray = explode("_",$parent); 
+                if($parentArray[1]=='H')
+                    $query = "update individu set pere = {$parentArray[0]} where famille_id = {$enfantArray[0]} and id = {$enfantArray[1]}";
+                else
+                    $query = "update individu set mere = {$parentArray[0]} where famille_id = {$enfantArray[0]} and id = {$enfantArray[1]}";
+            
+                $database->query($query);
+
+                $query = "select * from individu where famille_id = {$enfantArray[0]} and id = {$enfantArray[1]}";
+                $statement = $database->prepare($query);
+                $statement->execute();
+                $results = $statement->fetch(PDO::FETCH_OBJ);
+
+                return $results;
+            }
+            catch(PDOException $e){
                 printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
                 return NULL;
             }

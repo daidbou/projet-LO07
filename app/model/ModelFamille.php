@@ -63,6 +63,10 @@
                     "id" => $id,
                     "nom" => $nom,
                 ]);
+
+                $query = "insert into individu value (:famille_id, 0, '?','?','?',0,0 )";
+                $statement = $database->prepare($query);
+                $statement->execute(array("famille_id" => $id));
                 return $nom;
             }
             catch(PDOException $e){
