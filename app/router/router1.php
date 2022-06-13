@@ -45,6 +45,10 @@ switch ($action) {
 
         ControllerLien::$action();
         break;
+
+    case "individuReadAll" :
+        ControllerIndividu::$action();
+        break;
         
     default:
         $action = "accueil";

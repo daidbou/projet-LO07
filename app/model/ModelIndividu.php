@@ -51,6 +51,26 @@
         /**
          * récupère tous les individus et toutes les données de la database individu
          */
+        public static function getAllFamily($famille){
+            try{
+                $database = Model::getInstance();
+
+                $query = "select id from famille where nom = '$famille'";
+                $statement = $database->query($query);
+                $row = $statement->fetch();
+                $id = $row[0];
+                $query = "select * from individu where id<>0 and famille_id = $id order by id";
+                $statement = $database->prepare($query);
+                $statement->execute();
+                $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+                return $results;
+            } 
+            catch (PDOException $e) {
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return NULL;
+            }
+        }
+
         public static function getAll(){
             try{
                 $database = Model::getInstance();

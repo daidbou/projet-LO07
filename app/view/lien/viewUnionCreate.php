@@ -9,7 +9,7 @@
     <form role="form" method="get" action="router1.php">
         <input type="hidden" name="action" value="lienUnionCreated">
         <div class="form-group">
-            <label for="enfant">Sélectionnez un homme : </label>
+            <label for="homme">Sélectionnez un homme : </label>
             <select name="homme" id="homme" class="form-control" style="width:50%" >
                 <?php
                     foreach($result1 as $elements){
@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-group">
-                    <label for="parent">Sélectionnez une femme : </label>
+                    <label for="femme">Sélectionnez une femme : </label>
                     <select name="femme" id="femme" class="form-control" style="width:50%" >
                         <?php
                             foreach($result2 as $elements){
