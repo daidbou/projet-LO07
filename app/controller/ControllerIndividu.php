@@ -24,7 +24,7 @@
              $nameFamilytoInsert= ModelFamille::insert($_GET['nom']);
              $idFamille= ModelFamille::getIDfromNom($nameFamilytoInsert);
                 }
-            $results= ModelIndividu::insertIndividuFamille($idFamille, $_GET['prenom'], $_GET['sexe']);
+            $results= ModelIndividu::insertIndividuFamille($idFamille, $_GET['nom'], $_GET['prenom'], $_GET['sexe']);
     
     }
 ?>

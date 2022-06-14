@@ -126,15 +126,29 @@
             }
         }
         
-        public static function insertIndividuFamille($idfamille, $prenom,){
+        public static function insertIndividuFamille($idfamille, $nom, $prenom, $sexe){
             $database = Model::getInstance();
-            $query = "insert into individu value (:id, :nom)";
+            $query = "select max(id) from individu";
+                $statement = $database->query($query);
+                $tuple = $statement->fetch();
+                $id = $tuple['0'];
+                $id++;
+                
+            $query = "insert into individu value (:idfamille, :id, :nom, :prenom, :sexe, 0, 0)";
                 $statement = $database->prepare($query);
                 $statement->execute([
+                    "idfamille" => $idfamille,
                     "id" => $id,
                     "nom" => $nom,
-                    $famille_id, $id, $nom, $prenom, $sexe, $pere, $mere
+                    "prenom" => $prenom,
+                    "sexe" => $sexe
                 ]);
+                
+                $query = "select * from lien where id=$id";
+                $statement = $database->query($query);
+                $results = $statement->fetch(FETCH_CLASS,"ModelIndividu");
+                
+                return results;
         }
         
     }
