@@ -96,9 +96,13 @@
                 $query = "select id from famille where nom = '$nom'";
                 $statement = $database->query($query);
                 $tuple = $statement->fetch();
-                $results = $tuple[0];
-                
-                return $results;
+                try{
+                    $results = $tuple[0];
+                    return $results;
+                }
+                catch(PDOStatement $e){
+                    return NULL;
+                }
             }
             catch(PDOException $e){
                 printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());

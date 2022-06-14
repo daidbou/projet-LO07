@@ -146,9 +146,9 @@
                 
                 $query = "select * from individu where id=$id";
                 $statement = $database->query($query);
-                $results = $statement->fetch(FETCH_CLASS,"ModelIndividu");
+                $results = $statement->fetchAll(PDO::FETCH_CLASS,"ModelIndividu");
                 
-                return results;
+                return $results;
         }
         
     }
