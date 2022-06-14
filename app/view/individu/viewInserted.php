@@ -13,12 +13,12 @@
                     "
                     <ul>
                         <li>famille_id = ". $results->famille_id ."</li>
-                        <li>individu_id = ".$results->id."</li>
-                        <li>event_id = ".$results->nom."</li>
-                        <li>event_type = ".$results->prenom."</li>
-                        <li>event_date = ".$results->sexe."</li>
-                        <li>event_lieu = ".$results->pere."</li>
-                        <li>event_lieu = ".$results->mere."</li>
+                        <li>id = ".$results->id."</li>
+                        <li>nom = ".$results->nom."</li>
+                        <li>prénom = ".$results->prenom."</li>
+                        <li>sexe = ".$results->sexe."</li>
+                        <li>père = ".$results->pere."</li>
+                        <li>mère = ".$results->mere."</li>
                     </ul>
                 ");  
             ?> 

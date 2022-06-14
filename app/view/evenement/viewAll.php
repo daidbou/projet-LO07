@@ -20,13 +20,16 @@
         <tbody>
             <?php
                 //données du tableau
+                if($results!=NULL){
                     foreach($results as $row){
                         echo("<tr scope 'row'>");
                         foreach($row as $key=>$value){
                             echo("<td>$value");
                         }
                         echo("</tr>"); 
-                    }    
+                    }   
+                }
+ 
             ?> 
         </tbody>
     </table>                  

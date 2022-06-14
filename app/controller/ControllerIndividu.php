@@ -3,7 +3,10 @@
     class ControllerIndividu{
 
         public static function individuReadAll(){
-            $results = ModelIndividu::getAllFamily(htmlspecialchars($_COOKIE['nomSession']));
+            if(isset($_COOKIE["nomSession"]))
+                $results = ModelIndividu::getAllFamily(htmlspecialchars($_COOKIE['nomSession']));
+            else
+                $results = NULL;
             include "config.php";
             $vue = $root . "/app/view/individu/viewAll.php";
             if(DEBUG){

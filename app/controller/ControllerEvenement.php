@@ -5,7 +5,11 @@
     class ControllerEvenement{
         
         public static function evenementReadAll(){
-            $results = ModelEvenement::getAllEvenement(htmlspecialchars($_COOKIE['nomSession']));
+            if(isset($_COOKIE["nomSession"])){
+                $results = ModelEvenement::getAllEvenement(htmlspecialchars($_COOKIE['nomSession']));
+            }
+            else
+                $results = NULL;
             include "config.php";
             $vue = $root . "/app/view/evenement/viewAll.php";
             if(DEBUG){

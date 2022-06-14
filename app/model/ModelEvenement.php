@@ -71,7 +71,9 @@
         public static function getAllEvenement($famille){
             try{
                 $database = Model::getInstance();
-                echo("wshhhh ". $famille);
+                if($famille==NULL){
+                    return NULL;
+                }
                 $query = 
                 "select famille_id, evenement.id, iid, event_type, event_date, event_lieu from evenement inner join famille on famille.id = evenement.famille_id where famille.nom = '$famille'";
                 $statement = $database->prepare($query);

@@ -3,7 +3,10 @@
     class ControllerLien{
 
         public static function lienReadAll(){
-            $results = ModelLien::getFamily(htmlspecialchars($_COOKIE['nomSession']));
+            if(isset($_COOKIE["nomSession"]))
+                $results = ModelLien::getFamily(htmlspecialchars($_COOKIE['nomSession']));
+            else    
+                $results = NULL;
             include "config.php";
             $vue = $root . "/app/view/lien/viewAll.php";
             if(DEBUG){
