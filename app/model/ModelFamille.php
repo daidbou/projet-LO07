@@ -96,7 +96,7 @@
                 $query = "select DISTINCT id from famille where nom = '$nom'";
                 $statement = $database->query($query);
                 $results = $statement->fetch();
-                
+                var_dump($results);
                 
                 return $results;
             }
