@@ -93,10 +93,10 @@
         public static function getIDfromNom($nom){
             try{
                 $database = Model::getInstance();
-                $query = "select DISTINCT id from famille where nom = '$nom'";
+                $query = "select id from famille where nom = '$nom'";
                 $statement = $database->query($query);
-                $results = $statement->fetch();
-                var_dump($results);
+                $tuple = $statement->fetch();
+                $results = $tuple[0];
                 
                 return $results;
             }

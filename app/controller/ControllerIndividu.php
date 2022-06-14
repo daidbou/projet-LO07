@@ -20,7 +20,7 @@
         
         public static function individuCreated() {
             $idFamille= ModelFamille::getIDfromNom(htmlspecialchars($_GET['nom']));
-            if ($idFamille->rowCount() == 0){
+            if ($idFamille->rowCount() == NULL){
              $nameFamilytoInsert= ModelFamille::insert($_GET['nom']);
              $idFamille= ModelFamille::getIDfromNom($nameFamilytoInsert);
                 }
