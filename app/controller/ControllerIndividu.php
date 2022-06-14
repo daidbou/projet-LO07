@@ -23,7 +23,7 @@
             if ($idFamille == NULL){
              $nameFamilytoInsert= ModelFamille::insert($_GET['nom']);
              $idFamille= ModelFamille::getIDfromNom($nameFamilytoInsert);
-                }
+            }
             $results= ModelIndividu::insertIndividuFamille($idFamille, $_GET['nom'], $_GET['prenom'], $_GET['sexe']);
             include "config.php";
             $vue = $root . "/app/view/individu/viewInserted.php";

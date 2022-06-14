@@ -4,38 +4,24 @@
     <?php
         include $root . "/app/view/fragment/fragmentMenu.html";
         include $root . "/app/view/fragment/fragmentJumbotron.php";
-        echo("<h1>Liste des familles</h1>");  
+        echo("<h1>Confirmation de la création d'un individu</h1>");  
     ?>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                $famille_id, $id, $nom, $prenom, $sexe, $pere, $mere;
-                <th scope = "col">famille_id</th>
-                <th scope = "col">id</th>
-                <th scope = "col">nom</th>
-                <th scope = "col">prenom</th>
-                <th scope = "col">sexe</th>
-                <th scope = "col">pere</th>
-                <th scope = "col">mere</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
+    <ul>
+        <?php
                 //données du tableau
-                
-                    echo("<tr scope 'row'>
-                            <td>{$results->getFamille_id()}</td>
-                            <td>{$results->getId()}</td>
-                            <td>{$results->getNom()}</td>
-                            <td>{$results->getPrenom()}</td>
-                            <td>{$results->getSexe()}</td>
-                            <td>{$results->getPere()}</td>
-                            <td>{$results->getMere()}</td>
-                          </tr>
-                        ");
-                    
+                echo(
+                    "
+                    <ul>
+                        <li>famille_id = ". $results->famille_id ."</li>
+                        <li>individu_id = ".$results->id."</li>
+                        <li>event_id = ".$results->nom."</li>
+                        <li>event_type = ".$results->prenom."</li>
+                        <li>event_date = ".$results->sexe."</li>
+                        <li>event_lieu = ".$results->pere."</li>
+                        <li>event_lieu = ".$results->mere."</li>
+                    </ul>
+                ");  
             ?> 
-        </tbody>
-    </table>                  
+    </ul>                
 </div>
 <?php include $root . "/app/view/fragment/fragmentFooter.html" ?>

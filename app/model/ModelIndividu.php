@@ -128,7 +128,7 @@
         
         public static function insertIndividuFamille($idfamille, $nom, $prenom, $sexe){
             $database = Model::getInstance();
-            $query = "select max(id) from individu";
+            $query = "select max(id) from individu where famille_id = $idfamille";
                 $statement = $database->query($query);
                 $tuple = $statement->fetch();
                 $id = $tuple['0'];
@@ -144,10 +144,9 @@
                     "sexe" => $sexe
                 ]);
                 
-                $query = "select * from individu where id=$id";
+                $query = "select * from individu where id=$id and famille_id = $idfamille";
                 $statement = $database->query($query);
-                $results = $statement->fetchAll(PDO::FETCH_CLASS,"ModelIndividu");
-                
+                $results = $statement->fetch(PDO::FETCH_OBJ);
                 return $results;
         }
         
