@@ -19,9 +19,12 @@
         }
         
         public static function individuCreated() {
-            $results1= ModelFamille::getIDfromNom(htmlspecialchars($_GET['nom']));
-            
-            $results = ModelIndividu::insertIndividu();
-        }
+            $idFamille= ModelFamille::getIDfromNom(htmlspecialchars($_GET['nom']));
+            if ($idFamille->rowCount() == 0){
+             $nameFamilytoInsert= ModelFamille::insert($_GET['nom']);
+             $idFamille= ModelFamille::getIDfromNom($nameFamilytoInsert);
+                }
+            $results= ModelIndividu::insertIndividuFamille($idFamille, $_GET['prenom'], $_GET['sexe']);
+    
     }
 ?>

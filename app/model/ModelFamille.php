@@ -95,7 +95,7 @@
                 $database = Model::getInstance();
                 $query = "select DISTINCT id from famille where nom = '$nom'";
                 $statement = $database->query($query);
-                $results = $statement->fetch(PDO::FETCH_CLASS,"ModelFamille");
+                $results = $statement->fetch();
                 
                 
                 return $results;

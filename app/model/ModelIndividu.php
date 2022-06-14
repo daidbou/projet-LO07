@@ -126,6 +126,16 @@
             }
         }
         
+        public static function insertIndividuFamille($idfamille, $prenom,){
+            $database = Model::getInstance();
+            $query = "insert into individu value (:id, :nom)";
+                $statement = $database->prepare($query);
+                $statement->execute([
+                    "id" => $id,
+                    "nom" => $nom,
+                    $famille_id, $id, $nom, $prenom, $sexe, $pere, $mere
+                ]);
+        }
         
     }
 
