@@ -25,6 +25,13 @@
              $idFamille= ModelFamille::getIDfromNom($nameFamilytoInsert);
                 }
             $results= ModelIndividu::insertIndividuFamille($idFamille, $_GET['nom'], $_GET['prenom'], $_GET['sexe']);
+            include "config.php";
+            $vue = $root . "/app/view/individu/viewInserted.php";
+            if(DEBUG){
+                echo("ControllerFamille : individuCreated() : vue : $vue");
+            }
+            require($vue);
     
+    }
     }
 ?>
