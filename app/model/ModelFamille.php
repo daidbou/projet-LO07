@@ -89,6 +89,22 @@
                 return -1;
             }
         }
+        
+        public static function getIDfromNom($nom){
+            try{
+                $database = Model::getInstance();
+                $query = "select DISTINCT id from famille where nom = '$nom'";
+                $statement = $database->query($query);
+                $results = $statement->fetch(PDO::FETCH_CLASS,"ModelFamille");
+                
+                
+                return $results;
+            }
+            catch(PDOException $e){
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return -1;
+            }
+        }
     }
 
 ?>
