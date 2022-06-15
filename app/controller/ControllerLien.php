@@ -3,8 +3,8 @@
     class ControllerLien{
 
         public static function lienReadAll(){
-            if(isset($_COOKIE["nomSession"]))
-                $results = ModelLien::getFamily(htmlspecialchars($_COOKIE['nomSession']));
+            if(isset($_SESSION["nomSession"]))
+                $results = ModelLien::getFamily(htmlspecialchars($_SESSION['nomSession']));
             else    
                 $results = NULL;
             include "config.php";

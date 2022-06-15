@@ -5,8 +5,8 @@
     class ControllerEvenement{
         
         public static function evenementReadAll(){
-            if(isset($_COOKIE["nomSession"])){
-                $results = ModelEvenement::getAllEvenement(htmlspecialchars($_COOKIE['nomSession']));
+            if(isset($_SESSION["nomSession"])){
+                $results = ModelEvenement::getAllEvenement(htmlspecialchars($_SESSION['nomSession']));
             }
             else
                 $results = NULL;

@@ -70,7 +70,6 @@
                 return $nom;
             }
             catch(PDOException $e){
-                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
                 return -1;
             } 
         }

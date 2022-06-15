@@ -3,8 +3,8 @@
     class ControllerIndividu{
 
         public static function individuReadAll(){
-            if(isset($_COOKIE["nomSession"]))
-                $results = ModelIndividu::getAllFamily(htmlspecialchars($_COOKIE['nomSession']));
+            if(isset($_SESSION["nomSession"]))
+                $results = ModelIndividu::getAllFamily(htmlspecialchars($_SESSION['nomSession']));
             else
                 $results = NULL;
             include "config.php";

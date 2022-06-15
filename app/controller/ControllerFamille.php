@@ -23,8 +23,10 @@
                 $valide = 1;
             else{
                 $results = ModelFamille::insert(htmlspecialchars($_GET['nom']));
-                if($results!=-1)
-                    setcookie("nomSession", $_GET['nom']);
+                if($results!=-1){
+                    $_SESSION['nomSession'] = $_GET['nom'];
+                }
+                    
                 else
                     $valide = 2;
             }
@@ -42,7 +44,7 @@
         }
         public static function familleSelected(){
             $results = ModelFamille::getOne(htmlspecialchars($_GET['nom']));
-            setcookie("nomSession", $_GET['nom']);
+            $_SESSION['nomSession'] = $_GET['nom'];
             include 'config.php';
             $vue = $root . "/app/view/famille/viewSelected.php";
             require($vue);
