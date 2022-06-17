@@ -150,6 +150,21 @@
                 return $results;
         }
         
+        public static function getIndividu($idfam, $idind){
+            try{
+                $database = Model::getInstance();
+                $query = "select * from individu where famille_id = '$idfam' AND id='$idind'";
+                $statement = $database->prepare($query);
+                $statement->execute();
+                $results = $statement->fetch(PDO::FETCH_OBJ);
+                return $results;
+            } 
+            catch (PDOException $e) {
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return NULL;
+            }
+        }
+        
     }
 
 ?>

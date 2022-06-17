@@ -49,6 +49,8 @@ switch ($action) {
     case "individuReadAll" :
     case "individuAjout" :
     case "individuCreated" :
+    case "individuChoose":
+    case "individuChosen":
         ControllerIndividu::$action();
         break;
         

@@ -120,7 +120,52 @@
                 return NULL;
             }
         }
+        
+        public static function getNaissIndividu($idfam, $idind){
+            try{
+                $database = Model::getInstance();
+             
+                $query = "select event_date, event_lieu from evenement where famille_id = '$idfam' AND iid= '$idind' AND event_type='NAISSANCE'";
+                $statement = $database->prepare($query);
+                $statement->execute();
+                $tuple = $statement->fetch(PDO::FETCH_OBJ);
+                try{
+                    
+                    return $tuple;
+                }
+                catch(PDOStatement $e){
+                    return NULL;
+                }
+            }
+            catch(PDOException $e){
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return NULL;
+            }
+        }
+        
+        public static function getDecesIndividu($idfam, $idind){
+            try{
+                $database = Model::getInstance();
+               
+                $query = "select event_date, event_lieu from evenement where famille_id = '$idfam' AND iid= '$idind' AND event_type='DECES'";
+                $statement = $database->prepare($query);
+                $statement->execute();
+                $tuple = $statement->fetch(PDO::FETCH_OBJ);
+                try{
+                    
+                    return $tuple;
+                }
+                catch(PDOStatement $e){
+                    return NULL;
+                }
+            }
+            catch(PDOException $e){
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return NULL;
+            }
+        }
+        }
 
-    }
+    
 
 ?>
