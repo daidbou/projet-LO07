@@ -51,14 +51,25 @@
             require($vue);
         }
         
-        public static function individuChosen(){
-           $choix=$_GET['page'];
-           $choix = explode("_", $choix);
-           $idfam=$choix[0];
-           $idind=$choix[1];
+        public static function individuChosen($individu){
+            
+            
+            if(isset($_GET['page'])) { 
+                $choix=$_GET['page'];
+            $choix = explode("_", $choix);
+            $idind=$choix[1];
+            $idfam=$choix[0];         
            $nomInd=$choix[2];
            $prenomInd=$choix[3];
-                   
+               
+            } else {
+         
+                $idind=$individu['id'];
+            $idfam=$individu['idfam'];
+                
+            }
+          
+            
            $idNaiss= ModelEvenement::getNaissIndividu($idfam, $idind);
            if ($idNaiss == NULL){
              $dateNaiss= '?';
@@ -78,13 +89,16 @@
             $infoInd= ModelIndividu::getIndividu($idfam, $idind);
             $idPere=$infoInd->pere;
             $idMere=$infoInd->mere;
-            $infoInd= ModelIndividu::getIndividu($idfam, $idPere);
-            $nomPere=$infoInd->nom;
-            $prenomPere=$infoInd->prenom;
-            $infoInd= ModelIndividu::getIndividu($idfam, $idMere);
-            $nomMere=$infoInd->nom;
-            $prenomMere=$infoInd->prenom;
+            $nomInd=$infoInd->nom;
+            $prenomInd=$infoInd->prenom;
             
+            $infoPere= ModelIndividu::getIndividu($idfam, $idPere);
+            $nomPere=$infoPere->nom;
+            $prenomPere=$infoPere->prenom;
+            
+            $infoMere= ModelIndividu::getIndividu($idfam, $idMere);
+            $nomMere=$infoMere->nom;
+            $prenomMere=$infoMere->prenom;
             
             
             

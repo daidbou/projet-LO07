@@ -21,12 +21,16 @@
                         <li>Décès le $dateDeces à $lieuDeces .</li>
                     </ul>
                     
-    <h2>Parents</h2>
     
-<ul>
-                        <li>Père: $nomPere $prenomPere .</li>
-                        <li>Mère: $nomMere $prenomMere .</li>
+<h2>Parents</h2>
+    
+  <ul>\n<li>Père : <a href='router1.php?action=individuChosen&id=$idPere&idfam=$idfam'>".$nomPere." ".$prenomPere."</a></li>
+      <li>Mère : <a href='router1.php?action=individuChosen&id=$idMere&idfam=$idfam'>".$nomMere." ".$prenomMere."</a></li>
+                
+            
                     </ul>
+    
+
                 ");  
             ?> 
     </ul>                

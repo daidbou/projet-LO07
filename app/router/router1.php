@@ -17,6 +17,8 @@ parse_str($query_string, $param);
 
 // --- $action contient le nom de la méthode statique recherchée
 $action = htmlspecialchars($param["action"]);
+unset($param["action"]);
+$individu = $param;
 
 // --- Liste des méthodes autorisées
 switch ($action) {
@@ -51,7 +53,7 @@ switch ($action) {
     case "individuCreated" :
     case "individuChoose":
     case "individuChosen":
-        ControllerIndividu::$action();
+        ControllerIndividu::$action($individu);
         break;
         
     default:
