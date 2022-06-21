@@ -165,6 +165,23 @@
             }
         }
         
+        public static function getlisteIndividu($idfam, $idComp){
+            try{
+                $database = Model::getInstance();
+                $query = "select * from individu where famille_id = '$idfam' AND id IN (" . implode(',', $idComp) . ")";
+                $statement = $database->prepare($query);
+                $statement->execute();
+                $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+                return $results;
+            } 
+            catch (PDOException $e) {
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return NULL;
+            }
+        }
+        
+        
+        
     }
 
 ?>

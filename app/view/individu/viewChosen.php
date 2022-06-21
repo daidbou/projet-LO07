@@ -29,9 +29,18 @@
                 
             
                     </ul>
-    
+      
+<h2>Unions et Enfants</h2>
+    <ul>
 
-                ");  
+                "); 
+                
+      foreach ($listeComp as $value) {
+          echo "<li>Union avec: <a href='router1.php?action=individuChosen&id=$value[id]&idfam=$value[famille_id]'>".$value['nom']." ".$value['prenom']."</a></li>";
+      }
+                             
+
+         
             ?> 
     </ul>                
 </div>

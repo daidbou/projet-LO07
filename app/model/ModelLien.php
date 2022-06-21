@@ -70,6 +70,21 @@
                 return NULL;
             }
         }
+        
+        public static function getUnionInd($idfam, $idind){
+            try{
+                $database = Model::getInstance();
+                $query = "select iid1, iid2, lien_type from lien where famille_id='$idfam' AND (iid1='$idind' OR iid2='$idind') AND (lien_type='MARIAGE' OR lien_type='COUPLE' OR lien_type='PACS')";
+                $statement = $database->prepare($query);
+                $statement->execute();
+                $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+                return $results;
+            } 
+            catch (PDOException $e) {
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return NULL;
+            }
+        }
     }
 
 ?>

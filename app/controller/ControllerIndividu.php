@@ -99,6 +99,20 @@
             $infoMere= ModelIndividu::getIndividu($idfam, $idMere);
             $nomMere=$infoMere->nom;
             $prenomMere=$infoMere->prenom;
+           
+            $unionInd= ModelLien::getUnionInd($idfam, $idind);
+            $idComp=array();
+            foreach ($unionInd as $value) {
+                if ($value["iid1"]==$idind){
+                array_push($idComp, $value["iid2"]);
+                } else {
+                   array_push($idComp, $value["iid1"]); 
+            }};
+            
+            $listeComp=ModelIndividu::getlisteIndividu($idfam, $idComp);
+            
+
+            
             
             
             
