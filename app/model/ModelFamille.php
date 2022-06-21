@@ -108,6 +108,26 @@
                 return -1;
             }
         }
+
+        public static function getNomfromId($id){
+            try{
+                $database = Model::getInstance();
+                $query = "select nom from famille where id = $id";
+                $statement = $database->query($query);
+                $tuple = $statement->fetch();
+                try{
+                    $results = $tuple[0];
+                    return $results;
+                }
+                catch(PDOStatement $e){
+                    return NULL;
+                }
+            }
+            catch(PDOException $e){
+                printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+                return -1;
+            }
+        }
     }
 
 ?>

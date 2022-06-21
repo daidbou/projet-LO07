@@ -56,26 +56,25 @@
             
             if(isset($_GET['page'])) { 
                 $choix=$_GET['page'];
-            $choix = explode("_", $choix);
-            $idind=$choix[1];
-            $idfam=$choix[0];         
-           $nomInd=$choix[2];
-           $prenomInd=$choix[3];
+                $choix = explode("_", $choix);
+                $idind=$choix[1];
+                $idfam=$choix[0];         
+                $nomInd=$choix[2];
+                $prenomInd=$choix[3];
                
             } else {
          
                 $idind=$individu['id'];
-            $idfam=$individu['idfam'];
-                
+                $idfam=$individu['idfam'];   
             }
           
             
            $idNaiss= ModelEvenement::getNaissIndividu($idfam, $idind);
            if ($idNaiss == NULL){
-             $dateNaiss= '?';
-             $lieuNaiss= '?';
+                $dateNaiss= '?';
+                $lieuNaiss= '?';
             } else { $dateNaiss= $idNaiss->event_date;
-             $lieuNaiss= $idNaiss->event_lieu;                
+                $lieuNaiss= $idNaiss->event_lieu;                
             }
             
             $idDeces=ModelEvenement::getDecesIndividu($idfam, $idind);
@@ -108,15 +107,11 @@
                 } else {
                    array_push($idComp, $value["iid1"]); 
             }};
+
+            $nomFamille = ModelFamille::getNomfromId($idfam);
+            $listeEnfant = ModelIndividu::getAllFamily($nomFamille);
             
             $listeComp=ModelIndividu::getlisteIndividu($idfam, $idComp);
-            
-
-            
-            
-            
-            
-            
           
             include "config.php";
             $vue = $root . "/app/view/individu/viewChosen.php";
