@@ -21,4 +21,4 @@
 
 </div>
 
-<?php include $root."/app/view/fragment/fragmentFooter.html";?>
+<!--TODO vérifier que results retourne bien le nom de la famille créée
