@@ -12,7 +12,12 @@
     <form role="form" method="get" action="router1.php">
         <div class="form-group">
             <input type="hidden" name="action" value="individuCreated">
-       <?php  echo "<label for='nom'>Nom ? </label><p/><input type='text' name='nom' style='width:70%' value=".$_SESSION["nomSession"]."><p/>"; ?>
+       <?php  if (isset($_SESSION["nomSession"])){
+       echo "<label for='nom'>Nom ? </label><p/><input type='text' name='nom' style='width:70%' value=".$_SESSION["nomSession"]."><p/>";}
+       else {
+          echo "<label for='nom'>Nom ? </label><p/><input type='text' name='nom' style='width:70%'><p/>"; 
+       }
+?>
             <label for="prenom">Prénom ? </label><p/><input type="text" name="prenom" style='width:70%'>
             <div>
             <label for="sexe">Sexe ? </label><p/><input type="radio" name = "sexe" 

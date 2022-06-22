@@ -4,10 +4,12 @@
 
         public static function individuReadAll(){
             include "config.php";
-            if(isset($_SESSION["nomSession"])){
+            if(isset($_SESSION["nomSession"])){      
+                
                 $results = ModelIndividu::getAllFamily(htmlspecialchars($_SESSION['nomSession']));
                         $vue = $root . "/app/view/individu/viewAll.php";
-            }else {
+                        
+            }else {               
             $vue = $root . "/app/view/viewAccueil.php";}
             
             
@@ -40,11 +42,14 @@
     }
     
     public static function individuChoose(){
-        include "config.php";
+       include "config.php";
             if(isset($_SESSION["nomSession"])){
+                 
                 $results = ModelIndividu::getAllFamily(htmlspecialchars($_SESSION['nomSession']));
+                        
             $vue = $root . "/app/view/individu/viewChoose.php";
             }else{
+                      
             $vue = $root . "/app/view/viewAccueil.php";}
             
             
