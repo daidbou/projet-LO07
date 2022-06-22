@@ -12,8 +12,8 @@
     <form role="form" method="get" action="router1.php">
         <div class="form-group">
             <input type="hidden" name="action" value="individuCreated">
-            <label for="nom">Nom ? </label><p/><input type="text" name="nom" style='width:70%' value="roqdi"><p/>
-            <label for="prenom">Prénom ? </label><p/><input type="text" name="prenom" style='width:70%' value="amr">
+       <?php  echo "<label for='nom'>Nom ? </label><p/><input type='text' name='nom' style='width:70%' value=".$_SESSION["nomSession"]."><p/>"; ?>
+            <label for="prenom">Prénom ? </label><p/><input type="text" name="prenom" style='width:70%'>
             <div>
             <label for="sexe">Sexe ? </label><p/><input type="radio" name = "sexe" 
                         value="H">Masculin

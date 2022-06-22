@@ -3,12 +3,14 @@
     class ControllerIndividu{
 
         public static function individuReadAll(){
-            if(isset($_SESSION["nomSession"]))
-                $results = ModelIndividu::getAllFamily(htmlspecialchars($_SESSION['nomSession']));
-            else
-                $results = NULL;
             include "config.php";
-            $vue = $root . "/app/view/individu/viewAll.php";
+            if(isset($_SESSION["nomSession"])){
+                $results = ModelIndividu::getAllFamily(htmlspecialchars($_SESSION['nomSession']));
+                        $vue = $root . "/app/view/individu/viewAll.php";
+            }else {
+            $vue = $root . "/app/view/viewAccueil.php";}
+            
+            
             if(DEBUG){
                 echo("ControllerIndividu : individuReadAll : vue : $vue");
             }
@@ -38,13 +40,14 @@
     }
     
     public static function individuChoose(){
-            if(isset($_SESSION["nomSession"]))
+        include "config.php";
+            if(isset($_SESSION["nomSession"])){
                 $results = ModelIndividu::getAllFamily(htmlspecialchars($_SESSION['nomSession']));
-            
-            else
-                $results = NULL;
-            include "config.php";
             $vue = $root . "/app/view/individu/viewChoose.php";
+            }else{
+            $vue = $root . "/app/view/viewAccueil.php";}
+            
+            
             if(DEBUG){
                 echo("ControllerIndividu : individuReadAll : vue : $vue");
             }
